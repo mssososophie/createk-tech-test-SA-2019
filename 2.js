@@ -6,28 +6,46 @@
   // ● Average length of word used 
   // ● Number of words above 3 characters 
 
-function toJson {
+var bigString = " ";
+
+function intoJSON() {
 
   function numWords(str){
     return str.split(' ').length;
   }
 
-  console.log(numWords('hello my name is Sophie'))
-
   function numSentences(str){
-    return str.split(".").length;
+    return str.split(". ").length;
   }
 
-  console.log(numSentences(""))
+  function longestWordInString(str){
+    var splitString = str.split(' ');
+    var longestWord = 0;
+    for(var i = 0; i < splitString.length; i++){
+      if(splitString[i].length > longestWord){
+        longestWord = stringSplit[i],length;
+      }
+    }
+    return longestWord;
+  }
 
-}
-  // need to return all results as object pairs
+  function avWordLength(str){
+    var avWord = 0;
+      for (var i = 0; i < wordCount.length; i++){
+        avWord += bigString[i].length;
+      }
+    var avgLen = avWord / numWords;
+    return avWordLength;
+  }
 
-  //
-  "results":[
-  {"numWords": int},
-  {"numSentences": int},
-  {"longestWord": "string"},
-  {"avWordLength": int},
-  {"numWordsOverthree": int}
-  ]
+  function numWordsOverThree(str){
+    var splitStringAgain = str.split(" ");
+    const numWordsOverThree = splitStringAgain.filter(word => word.length > 3);
+    return numWordsOverthree;
+  }
+
+  return [numWords, numSentences, longestWordInString, avWordLength, numWordsOverThree];
+};
+
+console.log(JSON.stringify(intoJSON))
+ 
